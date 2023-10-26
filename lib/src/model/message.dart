@@ -40,14 +40,14 @@ class Message {
     final columns = [
       index,
       id,
-      '$year-${zeroPadNumber(month)}-${zeroPadNumber(day)} ${zeroPadNumber(hour)}'
-          ':${zeroPadNumber(minute)}:${zeroPadNumber(second)}'
-          '${timeZoneOffset.isNegative ? '-' : '+'}${zeroPadNumber(offsetHours)}:'
-          '${zeroPadNumber(offsetMinutes)}',
+      '$year-${_zeroPadNumber(month)}-${_zeroPadNumber(day)} ${_zeroPadNumber(hour)}'
+          ':${_zeroPadNumber(minute)}:${_zeroPadNumber(second)}'
+          '${timeZoneOffset.isNegative ? '-' : '+'}${_zeroPadNumber(offsetHours)}:'
+          '${_zeroPadNumber(offsetMinutes)}',
       fromId != null ? 'PeerUser(user_id=$fromId)' : '',
       toId,
-      fwdFrom,
-      '"${message.replaceAll('"', '""').replaceAll(RegExp(r'\s+'), ' ')}"',
+      _escapeCsv(fwdFrom),
+      _escapeCsv(message),
       messageType.name,
       duration,
       reactions,
@@ -59,4 +59,6 @@ class Message {
   }
 }
 
-String zeroPadNumber(int number) => number.toString().padLeft(2, '0');
+String _zeroPadNumber(int number) => number.toString().padLeft(2, '0');
+
+String _escapeCsv(String data) => '"${data.replaceAll('"', '""').replaceAll(RegExp(r'\s+'), ' ')}"';

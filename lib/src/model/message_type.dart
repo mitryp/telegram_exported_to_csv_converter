@@ -29,6 +29,6 @@ bool _stickerMessagePredicate(Map<String, dynamic> json) => json['media_type'] =
 
 bool _voiceMessagePredicate(Map<String, dynamic> json) => json['media_type'] == 'voice_message';
 
-bool _audioMessagePredicate(Map<String, dynamic> json) => json['media_type'] == 'audio_message';
+bool _audioMessagePredicate(Map<String, dynamic> json) => json['media_type'] == 'audio_file';
 
 bool _textMessagePredicate(Map<String, dynamic> _) => true;

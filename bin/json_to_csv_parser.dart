@@ -1,7 +1,6 @@
 import 'dart:io';
 
-import 'package:json_to_csv_parser/src/decode.dart';
-import 'package:json_to_csv_parser/src/io.dart';
+import 'package:json_to_csv_parser/json_to_csv_parser.dart';
 
 const outputDir = 'output';
 

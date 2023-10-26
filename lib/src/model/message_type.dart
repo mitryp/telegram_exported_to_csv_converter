@@ -20,15 +20,15 @@ enum MessageType {
 bool _photoMessagePredicate(Map<String, dynamic> json) => json.containsKey('photo');
 
 bool _videoMessagePredicate(Map<String, dynamic> json) {
-  final val = json['message_type'];
+  final val = json['media_type'];
 
   return val == 'video_file' || val == 'video_message' || val == 'animation';
 }
 
-bool _stickerMessagePredicate(Map<String, dynamic> json) => json['message_type'] == 'sticker';
+bool _stickerMessagePredicate(Map<String, dynamic> json) => json['media_type'] == 'sticker';
 
-bool _voiceMessagePredicate(Map<String, dynamic> json) => json['message_type'] == 'voice_message';
+bool _voiceMessagePredicate(Map<String, dynamic> json) => json['media_type'] == 'voice_message';
 
-bool _audioMessagePredicate(Map<String, dynamic> json) => json['message_type'] == 'audio_message';
+bool _audioMessagePredicate(Map<String, dynamic> json) => json['media_type'] == 'audio_message';
 
 bool _textMessagePredicate(Map<String, dynamic> _) => true;
